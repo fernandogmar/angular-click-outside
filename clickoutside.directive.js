@@ -96,7 +96,7 @@
                     }
 
                     // still listen for the click event even if there is touch to cater for touchscreen laptops
-                    $document.on('click', eventHandler);
+                    $document.on('mousedown', eventHandler);// making sure that click event started outside
 
                     // when the scope is destroyed, clean up the documents event handlers as we don't want it hanging around
                     $scope.$on('$destroy', function() {
@@ -106,7 +106,7 @@
                             $document.off('touchstart', eventHandler);
                         }
 
-                        $document.off('click', eventHandler);
+                        $document.off('mousedown', eventHandler);// making sure that click event started outside
                     });
 
                     /**
